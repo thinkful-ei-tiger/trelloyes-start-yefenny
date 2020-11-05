@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component renders the UI with props as expected 1`] = `
+<div
+  className="Card"
+>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    delete
+  </button>
+  <h3>
+    Card 1
+  </h3>
+  <p>
+    My content
+  </p>
+</div>
+`;
