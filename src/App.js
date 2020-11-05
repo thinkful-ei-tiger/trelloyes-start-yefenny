@@ -20,8 +20,30 @@ class App extends React.Component {
       content: 'lorem ipsum'
     };
   };
+
+  omitCard = (obj, keyToOmit) => {
+    let { [keyToOmit]: _, ...rest } = obj;
+    return rest;
+  };
+
+  filterList = (cardId) => {
+    const newList = this.state.store.lists.map((list) => {
+      list.cardIds = list.cardIds.filter((id) => id !== cardId);
+      return list;
+    });
+    return newList;
+  };
+
   deleteCard = (id) => {
-    console.log(`Delete card function with id ${id}`);
+    const list = this.filterList(id);
+    const cards = this.omitCard(this.state.store.allCards, id);
+
+    this.setState({
+      store: {
+        lists: list,
+        allCards: cards
+      }
+    });
   };
 
   getList = (listId, cardId) => {
